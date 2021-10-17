@@ -1,0 +1,15 @@
+license-key: ""
+messages:
+  format: "&8| §c%radio% §7%name%§8:§f %message%"
+  join-actionbar: "§aDa adesso scriverai in radio §l%radio%"
+  leave-actionbar: "§aNon scriverai più in radio"
+item:
+  material: STICK
+  displayname: ""
+  model: 0
+  lore:
+    - ""
+    - ""
+    - ""
+radios: #Permission for radios is radios.[radios-name]
+  - centrale

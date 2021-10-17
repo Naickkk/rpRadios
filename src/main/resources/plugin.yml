@@ -1,0 +1,11 @@
+name: Radios
+version: '${project.version}'
+main: it.naick.radios.Radios
+api-version: 1.16
+authors: [ Naick ]
+commands:
+  radio:
+    aliases:
+      - radios
+    permission: radios.admin
+    permission-message: "§2|§c Non hai i permessi per utilizzare questo comando"
