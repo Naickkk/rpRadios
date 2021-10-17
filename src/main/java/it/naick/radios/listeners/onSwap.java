@@ -18,12 +18,16 @@ public class onSwap implements Listener {
 
         if (Util.isRadio(newSlot)) {
 
+            if (!player.hasPermission("radios." + Util.getRadio(newSlot)) && !player.isOp()) return;
+
             player.sendActionBar(Messages.JOIN.replaceAll("%radio%", Util.getRadio(newSlot)));
 
             return;
         }
 
         if (Util.isRadio(previousSlot)) {
+
+            if (!player.hasPermission("radios." + Util.getRadio(previousSlot)) && !player.isOp()) return;
 
             player.sendActionBar(Messages.LEAVE);
         }
