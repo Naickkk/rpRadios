@@ -2,6 +2,7 @@ package it.naick.radios;
 
 import com.google.common.collect.Lists;
 import it.naick.radios.commands.RadioCommand;
+import it.naick.radios.license.AdvancedLicense;
 import it.naick.radios.listeners.onChat;
 import it.naick.radios.listeners.onSwap;
 import lombok.Getter;
@@ -32,6 +33,11 @@ public final class Radios extends JavaPlugin {
         instance = this;
 
         saveDefaultConfig();
+
+        if (!new AdvancedLicense(this.getConfig().getString("license-key"), "https://unfathomed-foods.000webhostapp.com/verify.php", this).register()) {
+            Bukkit.getPluginManager().disablePlugin(this);
+            return;
+        }
 
         registerListeners();
         registerCommands();
