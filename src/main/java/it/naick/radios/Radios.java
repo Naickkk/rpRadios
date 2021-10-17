@@ -62,6 +62,8 @@ public final class Radios extends JavaPlugin {
 
         Radios.itemStack = itemStack;
 
+        Bukkit.getConsoleSender().sendMessage("§2|§a Radios plugin made by @NaickJar for @Garanziaa enabled successfully");
+
     }
 
     @Override

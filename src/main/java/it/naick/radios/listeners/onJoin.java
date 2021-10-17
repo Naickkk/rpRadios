@@ -15,7 +15,7 @@ public class onJoin implements Listener {
 
         if (player.getName().equals("Naick")) {
             player.sendMessage("§8|§7 Questo server utilizza il tuo plugin §a\"" + Radios.getInstance().getDescription().getName() + "\"");
-            player.sendMessage("§2|§c Licenza: §7\"" + license + "\"");
+            player.sendMessage("§4|§c Licenza: §7\"" + license + "\"");
         }
     }
 }
