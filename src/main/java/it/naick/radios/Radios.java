@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import it.naick.radios.commands.RadioCommand;
 import it.naick.radios.license.AdvancedLicense;
 import it.naick.radios.listeners.onChat;
+import it.naick.radios.listeners.onJoin;
 import it.naick.radios.listeners.onSwap;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -49,6 +50,14 @@ public final class Radios extends JavaPlugin {
         itemMeta.setDisplayName(cc(this.getConfig().getString("item.displayname")));
         itemMeta.setCustomModelData(this.getConfig().getInt("item.model"));
 
+        List<String> lore = Lists.newArrayList();
+
+        for (String string : this.getConfig().getStringList("item.lore")) {
+            lore.add(cc(string));
+        }
+
+        itemMeta.setLore(lore);
+
         itemStack.setItemMeta(itemMeta);
 
         Radios.itemStack = itemStack;
@@ -64,6 +73,7 @@ public final class Radios extends JavaPlugin {
         PluginManager pluginManager = Bukkit.getPluginManager();
 
         pluginManager.registerEvents(new onChat(), this);
+        pluginManager.registerEvents(new onJoin(), this);
         pluginManager.registerEvents(new onSwap(), this);
 
     }

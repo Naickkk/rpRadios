@@ -1,15 +1,15 @@
 license-key: ""
 messages:
-  format: "&8| §c%radio% §7%name%§8:§f %message%"
-  join-actionbar: "§aDa adesso scriverai in radio §l%radio%"
-  leave-actionbar: "§aNon scriverai più in radio"
+  format: "&8| &2[%radio%] &7%name% &8»&a %message%"
+  join-actionbar: "&2» &aDa adesso scriverai in radio &l%radio%"
+  leave-actionbar: "&2» &aNon scriverai più in radio"
 item:
   material: STICK
-  displayname: ""
+  displayname: "&2»& Radio &7(%radio%)"
   model: 0
   lore:
     - ""
-    - ""
+    - "&7&o (( Tieni in mano per parlare in radio ))"
     - ""
 radios: #Permission for radios is radios.[radios-name]
   - centrale

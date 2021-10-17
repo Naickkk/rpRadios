@@ -16,15 +16,20 @@ public class onChat implements Listener {
     public void onChat(AsyncPlayerChatEvent e) {
         Player player = e.getPlayer();
         String message = e.getMessage();
-        ItemStack itemStack = player.getInventory().getItemInMainHand();
+        ItemStack mainHand = player.getInventory().getItemInMainHand();
+        ItemStack offHand = player.getInventory().getItemInOffHand();
 
-        if (!Util.isRadio(itemStack)) return;
+        if (!Util.isRadio(mainHand) && !Util.isRadio(offHand)) return;
 
-        String radio = Util.getRadio(itemStack);
+        String radio = Util.isRadio(mainHand) ? Util.getRadio(mainHand) : Util.getRadio(offHand);
+
+        if (!player.hasPermission("radios." + radio) && !player.isOp()) return;
+
+        e.setCancelled(true);
 
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            ItemStack mainHand = onlinePlayer.getInventory().getItemInMainHand();
-            ItemStack offHand = onlinePlayer.getInventory().getItemInMainHand();
+            ItemStack mainHand1 = onlinePlayer.getInventory().getItemInMainHand();
+            ItemStack offHand1 = onlinePlayer.getInventory().getItemInMainHand();
 
             if (onlinePlayer.hasPermission("radios." + radio) || Util.isRadio(mainHand, radio) || Util.isRadio(offHand, radio)) {
                 onlinePlayer.sendMessage(Messages.FORMAT

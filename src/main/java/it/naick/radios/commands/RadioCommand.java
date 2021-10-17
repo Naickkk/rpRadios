@@ -1,5 +1,6 @@
 package it.naick.radios.commands;
 
+import com.google.common.collect.Lists;
 import it.naick.radios.Radios;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.command.Command;
@@ -32,7 +33,16 @@ public class RadioCommand implements CommandExecutor {
 
         ItemStack itemStack = Radios.getItemStack();
         ItemMeta itemMeta = itemStack.getItemMeta();
+
+        itemMeta.setDisplayName(itemMeta.getDisplayName().replaceAll("%radio%", StringUtils.capitalize(radio)));
+
+        List<String> replacedLore = Lists.newArrayList();
+        for (String s : itemMeta.getLore()) {
+            replacedLore.add(s.replaceAll("%radio%", StringUtils.capitalize(radio)));
+        }
+
         itemMeta.setLocalizedName("#radio-" + radio);
+
         itemStack.setItemMeta(itemMeta);
 
         player.getInventory().addItem(itemStack);

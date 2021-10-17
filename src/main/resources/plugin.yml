@@ -8,4 +8,4 @@ commands:
     aliases:
       - radios
     permission: radios.admin
-    permission-message: "§2|§c Non hai i permessi per utilizzare questo comando"
+    permission-message: "§4|§c Non hai i permessi per utilizzare questo comando"
